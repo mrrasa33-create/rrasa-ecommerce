@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ali Moazzam | RRASA eCommerce - eBay VA & Account Manager</title>
+  <meta name="description" content="Professional eBay Virtual Assistant providing eBay account creation, account management, product research, listing, order management and store support by RRASA eCommerce.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+      color: #ffcc00;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffcc00;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 70px;
+      background:
+        radial-gradient(circle at top right, rgba(255,204,0,0.13), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(0,150,255,0.12), transparent 35%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,204,0,0.4);
+      border-radius: 30px;
+      color: #ffcc00;
+      margin-bottom: 22px;
+      font-size: 14px;
+      background: rgba(255,204,0,0.05);
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 75px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #ffcc00;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin: auto;
+      color: #b9c2cf;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 27px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #ffcc00;
+      color: #07111f;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(255,204,0,0.2);
+    }
+
+    .btn-outline {
+      border: 1px solid #465363;
+      color: white;
+    }
+
+    .btn-outline:hover {
+      border-color: #ffcc00;
+      color: #ffcc00;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: #ffcc00;
+    }
+
+    .section-title p {
+      color: #9da9b8;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text h3 {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .about-text h3 span {
+      color: #ffcc00;
+    }
+
+    .about-text p {
+      color: #b7c0cb;
+      margin-bottom: 15px;
+    }
+
+    .about-card {
+      background: #0d1a2b;
+      border: 1px solid #1d2b3d;
+      padding: 35px;
+      border-radius: 18px;
+    }
+
+    .about-card div {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #203044;
+    }
+
+    .about-card div:last-child {
+      border-bottom: none;
+    }
+
+    .about-card strong {
+      color: #ffcc00;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: #0d1a2b;
+      border: 1px solid #1d2b3d;
+      padding: 30px 25px;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-7px);
+      border-color: #ffcc00;
+    }
+
+    .service-card.featured {
+      border: 1px solid #ffcc00;
+      background: rgba(255, 204, 0, 0.03);
+    }
+
+    .service-icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: #9da9b8;
+      font-size: 14px;
+    }
+
+    /* PORTFOLIO */
+    .portfolio {
+      background: #091522;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-bottom: 45px;
+    }
+
+    .stat {
+      text-align: center;
+      background: #0d1a2b;
+      border: 1px solid #1d2b3d;
+      padding: 28px 15px;
+      border-radius: 14px;
+    }
+
+    .stat h3 {
+      font-size: 32px;
+      color: #ffcc00;
+    }
+
+    .stat p {
+      color: #9da9b8;
+      font-size: 14px;
+    }
+
+    .portfolio-box {
+      background: #0d1a2b;
+      border: 1px solid #1d2b3d;
+      border-radius: 18px;
+      padding: 35px;
+    }
+
+    .portfolio-box h3 {
+      margin-bottom: 15px;
+    }
+
+    .portfolio-box p {
+      color: #aeb8c5;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .skill-top span:last-child {
+      color: #ffcc00;
+    }
+
+    .progress {
+      height: 8px;
+      background: #172638;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress div {
+      height: 100%;
+      background: #ffcc00;
+      border-radius: 20px;
+    }
+
+    /* WHY */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0d1a2b;
+      border-radius: 15px;
+      border: 1px solid #1d2b3d;
+    }
+
+    .why-card .icon {
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .why-card p {
+      color: #9da9b8;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* CONTACT SECTION & FORM */
+    .contact-box {
+      max-width: 800px;
+      margin: auto;
+      background: #0d1a2b;
+      border: 1px solid #26374b;
+      padding: 40px 30px;
+      border-radius: 20px;
+    }
+
+    .contact-top {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-top h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .whatsapp-container {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid #1d2b3d;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font-size: 14px;
+      color: #ffcc00;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      background: #07111f;
+      border: 1px solid #1d2b3d;
+      border-radius: 8px;
+      color: #ffffff;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus, 
+    .form-group textarea:focus {
+      border-color: #ffcc00;
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 25px;
+      text-align: center;
+      border-top: 1px solid #172638;
+      color: #7f8b9a;
+      font-size: 14px;
+    }
+
+    footer span {
+      color: #ffcc00;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #07111f;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .about-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .services-grid,
+      .why-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      section {
+        padding: 70px 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+
+      <div class="logo">
+        RRASA<span> eCommerce</span>
+      </div>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <div class="badge">● Available for eBay VA & Setup Projects</div>
+
+      <h1>
+        Ali Moazzam<br>
+        <span>eBay VA</span> & Account Manager
+      </h1>
+
+      <p>
+        Welcome to <strong>RRASA eCommerce</strong>. I assist new and existing sellers with professional 
+        <strong>eBay Account Creation</strong>, store setup, product research, optimized listings, order management, and daily operations.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn btn-primary">
+          Hire Me
+        </a>
+
+        <a href="#portfolio" class="btn btn-outline">
+          View Portfolio
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>About <span>Me</span></h2>
+        <p>Professional eBay Virtual Assistant at RRASA eCommerce</p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+          <h3>Your Trusted <span>eBay Specialist</span></h3>
+
+          <p>
+            Hi! I am Ali Moazzam. I provide end-to-end eBay services starting from fresh 
+            <strong>Professional Account Creation & Setup</strong> to complete store management through RRASA eCommerce.
+          </p>
+
+          <p>
+            Whether you want to create a new individual/business eBay account from scratch, verify payout methods, or need a dedicated Virtual Assistant for product research and orders, I am here to assist.
+          </p>
+
+          <p>
+            My goal is to provide high-quality, compliant solutions to keep your store active and growing smoothly.
+          </p>
+        </div>
+
+        <div class="about-card">
+
+          <div>
+            <span>Name</span>
+            <strong>Ali Moazzam</strong>
+          </div>
+
+          <div>
+            <span>Brand</span>
+            <strong>RRASA eCommerce</strong>
+          </div>
+
+          <div>
+            <span>Platform</span>
+            <strong>eBay</strong>
+          </div>
+
+          <div>
+            <span>Specialty</span>
+            <strong>Account Setup & VA</strong>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SERVICES SECTION WITH PROFESSIONAL ACCOUNT CREATION -->
+  <section id="services">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>My <span>Services</span></h2>
+        <p>Complete eBay Account Creation & Virtual Assistant Services</p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- FEATURED SERVICE: ACCOUNT CREATION -->
+        <div class="service-card featured">
+          <div class="service-icon">🆔</div>
+          <h3>Professional eBay Account Creation</h3>
+          <p>
+            Complete setup of fresh Individual & Business eBay seller accounts with step-by-step verification and configuration.
+          </p>
+        </div>
+
+        <div class="service-card featured">
+          <div class="service-icon">💳</div>
+          <h3>Payout & Payoneer Linkage</h3>
+          <p>
+            Linking and configuring Managed Payments, Bank Details, Payoneer, and billing options properly to ensure smooth payouts.
+          </p>
+        </div>
+
+        <div class="service-card featured">
+          <div class="service-icon">🛡️</div>
+          <h3>Seller Profile & Policy Setup</h3>
+          <p>
+            Setting up essential Business Policies including Shipping, Payment, Return policies, and Account Security settings.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3>eBay Account Management</h3>
+          <p>
+            Professional day-to-day management, store maintenance, and organization of your eBay business.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔎</div>
+          <h3>Product Research</h3>
+          <p>
+            Researching high-demand products and identifying profitable opportunities according to market trends.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>SEO Listing & Optimization</h3>
+          <p>
+            Creating optimized product listings with engaging titles, detailed descriptions, item specifics, and keywords.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+          <h3>Order Management & Processing</h3>
+          <p>
+            Handling customer orders, tracking updates, dispatch status, and smooth order fulfillment workflow.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">💬</div>
+          <h3>Customer Support & Messaging</h3>
+          <p>
+            Handling buyer inquiries, feedback requests, and maintaining high seller metrics through fast responses.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">↩️</div>
+          <h3>Returns, Cases & Disputes</h3>
+          <p>
+            Assisting with return cases, disputes, cancellation requests, and resolving issues professionally.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>My <span>Portfolio</span></h2>
+        <p>eBay store performance & experience</p>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <h3>50+</h3>
+          <p>Accounts Created & Setup</p>
+        </div>
+
+        <div class="stat">
+          <h3>100+</h3>
+          <p>Orders Managed</p>
+        </div>
+
+        <div class="stat">
+          <h3>80+</h3>
+          <p>Active Listings</p>
+        </div>
+
+        <div class="stat">
+          <h3>100%</h3>
+          <p>Positive Feedback</p>
+        </div>
+
+      </div>
+
+      <div class="portfolio-box">
+
+        <h3>eBay Account Setup & Store Management Experience</h3>
+
+        <p>
+          Experienced in assisting sellers globally with creating compliant eBay accounts, linking payment gateways, creating optimized listings, tracking management, customer service, and daily operations.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>My <span>Skills</span></h2>
+        <p>Tools and e-commerce expertise</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span>eBay Account Creation & Verification</span>
+              <span>98%</span>
+            </div>
+
+            <div class="progress">
+              <div style="width:98%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span>Account Management & Policies</span>
+              <span>95%</span>
+            </div>
+
+            <div class="progress">
+              <div style="width:95%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span>Product Research & Analytics</span>
+              <span>92%</span>
+            </div>
+
+            <div class="progress">
+              <div style="width:92%"></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span>SEO Listing Creation</span>
+              <span>95%</span>
+            </div>
+
+            <div class="progress">
+              <div style="width:95%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span>Order & Tracking Management</span>
+              <span>90%</span>
+            </div>
+
+            <div class="progress">
+              <div style="width:90%"></div>
+            </div>
+          </div>
+
+          <div class="skill">
+            <div class="skill-top">
+              <span>Customer Resolution & Disputes</span>
+              <span>90%</span>
+            </div>
+
+            <div class="progress">
+              <div style="width:90%"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHY CHOOSE ME -->
+  <section>
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Why <span>Choose Me?</span></h2>
+        <p>Professional support for your eBay business</p>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="icon">⚡</div>
+          <h3>Fast Account Setup</h3>
+          <p>
+            Proper guidance and professional execution for account registration and setup.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="icon">🎯</div>
+          <h3>Policy Compliant</h3>
+          <p>
+            Ensuring all business policies and details adhere to eBay guidelines.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="icon">📈</div>
+          <h3>Full Store Growth</h3>
+          <p>
+            From account creation to daily management, everything under one roof.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="contact-top">
+          <h2>Let's Work <span style="color:#ffcc00;">Together</span></h2>
+          <p>Need an eBay Account Created or VA Support? Get in touch!</p>
+        </div>
+
+        <!-- WHATSAPP OPTION -->
+        <div class="whatsapp-container">
+          <p style="margin-bottom: 12px; color: #b9c2cf;">Quick chat on WhatsApp:</p>
+          <a
+            href="https://wa.me/923128809947"
+            target="_blank"
+            class="btn btn-primary">
