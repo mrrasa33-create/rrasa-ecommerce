@@ -915,3 +915,67 @@
             href="https://wa.me/923128809947"
             target="_blank"
             class="btn btn-primary">
+            💬 Chat on WhatsApp
+          </a>
+        </div>
+
+        <!-- DIRECT EMAIL FORM -->
+        <div style="text-align: center; margin-bottom: 20px;">
+          <h3 style="font-size: 22px;">Or Send Me a Direct Message</h3>
+        </div>
+
+        <!-- Formspree Endpoint -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+          
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="e.g. eBay Account Creation / VA Inquiry" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Describe what service you need (e.g. New Account Setup, Payoneer Linking, Store VA)..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">
+            ✉️ Send Message
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <span>RRASA eCommerce</span> (Ali Moazzam) — eBay Account Creation & Management
+  </footer>
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
